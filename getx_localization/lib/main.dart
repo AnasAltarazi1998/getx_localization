@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_localization/dependencies.dart';
 import 'package:getx_localization/home_screen.dart';
 import 'package:getx_localization/translations.dart';
 import 'package:get_storage/get_storage.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       translations: Translation(),
+      initialBinding: dep(),
       locale: Locale('en'),
       fallbackLocale: Locale('en'),
       home: HomeScreen(),

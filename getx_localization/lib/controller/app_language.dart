@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:getx_localization/utils/local_storage/local_storgae.dart';
+import 'package:getx_localization/utils/localization/local_storgae.dart';
 
 class AppLanguage extends GetxController {
   var appLocale = 'ar';
@@ -24,13 +24,18 @@ class AppLanguage extends GetxController {
     if (appLocale == type) {
       return;
     }
-    if (type == 'ar') {
-      appLocale = 'ar';
-      localStorage.saveLanguageToDisk('ar');
-    } else {
-      appLocale = 'en';
-      localStorage.saveLanguageToDisk('en');
-    }
+    //   if (type == 'ar') {
+    //     appLocale = 'ar';
+    //     localStorage.saveLanguageToDisk('ar');
+    //   } else {
+    //     appLocale = 'en';
+    //     localStorage.saveLanguageToDisk('en');
+    //   }
+    //   update();
+    // }
+    appLocale = type;
+    localStorage.saveLanguageToDisk(type);
     update();
+    Get.updateLocale(Locale(type));
   }
 }

@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_localization/controller/app_language.dart';
-import 'package:getx_localization/utils/local_storage/local_storgae.dart';
 
-/// local saved data
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  String _selectedLang = 'en';
-  AppLanguage langControl = Get.find(tag: 'appLang');
+class HomeScreen extends StatelessWidget {
+  final AppLanguage langControl = Get.find(tag: 'appLang');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   value: langControl.appLocale,
                   onChanged: (value) {
                     langControl.changeLanguage(value);
-                    Get.updateLocale(Locale(value));
                   },
                 );
               },
